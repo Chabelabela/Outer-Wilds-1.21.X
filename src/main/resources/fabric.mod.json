@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Chabelabela/Outer-Wilds-1.21.X.git"
 	},
 	"license": "MIT",
 	"icon": "assets/outerwildsmod/icon.png",
