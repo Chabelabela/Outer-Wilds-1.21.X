@@ -1,0 +1,9 @@
+{
+  "type": "outerwilds:space_type",
+  "generator": {
+    "type": "outerwilds:space",
+    "biome_source": {
+      "type": "outerwilds:space"
+    }
+  }
+}

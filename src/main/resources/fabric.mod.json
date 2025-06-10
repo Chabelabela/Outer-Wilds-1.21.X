@@ -19,10 +19,10 @@
 			"net.chabelabela.outerwildsmod.OuterWildsMod"
 		],
 		"fabric-datagen": [
-			"net.chabelabela.outerwildsmod.OuterWildsModDataGenerator"
+
 		],
 		"Client": [
-			"net.chabelabela.outerwildsmod.OuterWildsModClient"
+
 		]
 	},
 	"mixins": [
