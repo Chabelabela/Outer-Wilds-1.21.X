@@ -1,9 +1,16 @@
 {
-  "type": "outerwilds:space_type",
+  "type": "outerwildsmod:space_type",
   "generator": {
-    "type": "outerwilds:space",
-    "biome_source": {
-      "type": "outerwilds:space"
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:plains",
+      "layers": [
+        {
+          "block": "minecraft:air",
+          "height": 1
+        }
+      ],
+      "structure_overrides": []
     }
   }
 }
