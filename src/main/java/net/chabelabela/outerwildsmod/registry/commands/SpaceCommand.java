@@ -1,4 +1,4 @@
-package net.chabelabela.outerwildsmod.command;
+package net.chabelabela.outerwildsmod.registry.commands;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.command.ServerCommandSource;
@@ -17,7 +17,7 @@ public final class SpaceCommand {
                         // Run teleport as the server console
                         src.getServer().getCommandManager().executeWithPrefix(
                                 src.getServer().getCommandSource(),
-                                "execute in outerwilds:space run tp " + src.getName() + " 0 60 0"
+                                "execute in outerwildsmod:space run tp " + src.getName() + " 0 60 0"
                         );
 
                         src.sendFeedback(() -> Text.of("Teleporting to space..."), false);

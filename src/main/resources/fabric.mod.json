@@ -22,7 +22,7 @@
 
 		],
 		"Client": [
-
+			"net.chabelabela.outerwildsmod.OuterWildsModClient"
 		]
 	},
 	"mixins": [

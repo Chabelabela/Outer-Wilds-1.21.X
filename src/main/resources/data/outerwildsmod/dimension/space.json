@@ -3,10 +3,10 @@
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "minecraft:plains",
+      "biome": "#minecraft:plains",
       "layers": [
         {
-          "block": "minecraft:air",
+          "block": "#minecraft:air",
           "height": 1
         }
       ],
