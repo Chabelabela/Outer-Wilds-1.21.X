@@ -21,9 +21,9 @@
 		"fabric-datagen": [
 
 		],
-		"Client": [
-			"net.chabelabela.outerwildsmod.OuterWildsModClient"
-		]
+		"client": [
+          "net.chabelabela.outerwildsmod.OuterWildsModClient"
+        ]
 	},
 	"mixins": [
 		"outerwildsmod.mixins.json"
