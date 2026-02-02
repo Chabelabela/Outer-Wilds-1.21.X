@@ -1,40 +1,35 @@
 {
-	"schemaVersion": 1,
-	"id": "outerwildsmod",
-	"version": "0.0.1",
-	"name": "Outer Wilds Mod",
-	"description": "A mod trying to replicate Outer Wilds in Minecraft",
-	"authors": [
-		"Chabelabela"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/Chabelabela/Outer-Wilds-1.21.X.git"
-	},
-	"license": "MIT",
-	"icon": "assets/outerwildsmod/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.chabelabela.outerwildsmod.OuterWildsMod"
-		],
-		"fabric-datagen": [
-
-		],
-		"client": [
-          "net.chabelabela.outerwildsmod.OuterWildsModClient"
-        ]
-	},
-	"mixins": [
-		"outerwildsmod.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "outerwildsmod",
+  "version": "0.1.0",
+  "name": "Outer Wilds Mod",
+  "description": "Experience Outer Wilds in Minecraft - explore space, orbit planets, and escape the supernova!",
+  "authors": [
+    "Chabelabela"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Chabelabela/Outer-Wilds-1.21.X",
+    "sources": "https://github.com/Chabelabela/Outer-Wilds-1.21.X.git"
+  },
+  "license": "MIT",
+  "icon": "assets/outerwildsmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.chabelabela.outerwildsmod.OuterWildsMod"
+    ],
+    "client": [
+      "net.chabelabela.outerwildsmod.OuterWildsModClient"
+    ]
+  },
+  "mixins": [
+    "outerwildsmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {}
 }

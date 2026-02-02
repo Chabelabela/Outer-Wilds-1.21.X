@@ -1,37 +1,52 @@
 package net.chabelabela.outerwildsmod;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.chabelabela.outerwildsmod.entities.SunEntityRenderer;
+import net.chabelabela.outerwildsmod.registry.dimensionrender.SpaceDimensionEffects;
+import net.chabelabela.outerwildsmod.registry.entity.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.chabelabela.outerwildsmod.registry.dimensionrender.SpaceDimensionEffects;
-import com.mojang.blaze3d.systems.RenderSystem;
 import org.lwjgl.opengl.GL11;
 
 /**
- * Client entrypoint: registers the DimensionEffects + a no-op sky renderer for a true black void.
+ * Client entrypoint: registers dimension effects, sky renderer, and entity renderers.
  */
 public class OuterWildsModClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
-        // Use Identifier.of(...) per project preference
-        Identifier effectsId = Identifier.of("outerwildsmod", "space");
-        RegistryKey<World> worldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("outerwildsmod", "space"));
+        System.out.println("[OuterWildsMod] Initializing client...");
 
-        // Register DimensionEffects (controls fog color / sky type)
-        DimensionRenderingRegistry.registerDimensionEffects(effectsId, SpaceDimensionEffects.INSTANCE);
+        Identifier spaceId = Identifier.of(OuterWildsMod.MOD_ID, "space");
+        RegistryKey<World> spaceWorldKey = RegistryKey.of(RegistryKeys.WORLD, spaceId);
 
-        // Register SkyRenderer: clear to black and do nothing else (prevents vanilla sky rendering)
-        DimensionRenderingRegistry.registerSkyRenderer(worldKey, (WorldRenderContext ctx) -> {
+        // Register custom DimensionEffects (controls fog, sky type, etc.)
+        DimensionRenderingRegistry.registerDimensionEffects(spaceId, SpaceDimensionEffects.INSTANCE);
+
+        // Register sky renderer: pure black void
+        DimensionRenderingRegistry.registerSkyRenderer(spaceWorldKey, ctx -> {
             RenderSystem.clearColor(0f, 0f, 0f, 1f);
             RenderSystem.clear(GL11.GL_COLOR_BUFFER_BIT, false);
         });
 
-        // Defensive: block clouds and weather from rendering
-        DimensionRenderingRegistry.registerCloudRenderer(worldKey, (WorldRenderContext ctx) -> { /* no clouds */ });
-        DimensionRenderingRegistry.registerWeatherRenderer(worldKey, (WorldRenderContext ctx) -> { /* no weather */ });
+        // Disable clouds in space
+        DimensionRenderingRegistry.registerCloudRenderer(spaceWorldKey, ctx -> {
+            // No clouds in space
+        });
+
+        // Disable weather in space
+        DimensionRenderingRegistry.registerWeatherRenderer(spaceWorldKey, ctx -> {
+            // No weather in space
+        });
+
+        // Register entity renderers
+        EntityRendererRegistry.register(ModEntities.SUN_ENTITY, SunEntityRenderer::new);
+
+        System.out.println("[OuterWildsMod] Client initialization complete!");
     }
 }
